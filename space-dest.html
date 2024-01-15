@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Space Tour</title>
+<style>
+    *:active {
+        outline: none;
+        -webkit-tap-highlight-color: transparent; 
+    }
+    body{
+        transition: 1s all;
+        font-family: 'League Spartan', sans-serif;
+        overflow: hidden;
+        background: url(background-destination-desktop.jpg);
+        background-size:cover;
+        margin: 0;
+    }
+    header{
+        position: fixed;
+        width: 100vw;
+        margin-top:20px ;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        letter-spacing: 3px;
+    }
+    .head-left img{
+        height: 40px;
+        margin: 0 30px;
+    }
+    .head-right{
+        text-wrap: nowrap;
+        color: hsl(228, 7%, 86%);
+        display: flex;
+        font-weight: 300;
+        background-color: hsla(223, 31%, 20%, 0.409);
+        padding: 0px 70px 0px 50px;
+    }
+    .head-right div{
+        font-size: 0.8em;
+        cursor: pointer;
+        margin-right: 20px;
+        transition: 1s;
+        padding: 30px 0;
+    }
+    .dest{
+        border-bottom: 2px solid white;
+    }
+    span{
+        font-weight: bold;
+        color: white;
+    }
+    main{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 100px;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    .leftsection{
+        flex: 1;
+        color: hsl(228, 7%, 86%);
+        letter-spacing: 2px;
+        padding-right: 100px;
+    }
+    .planet-container{
+        font-weight: 300;
+        display: flex;
+        margin: 50px 0;
+        font-size: 1.5em;
+        text-wrap: nowrap;
+    }
+    .planet-num{
+        color: gray;
+        margin-right: 10px;
+        font-weight: 500;
+    }
+    .planet-img-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .planet-img{
+        width: 300px;
+    }
+    .rightsection{
+        flex:1;
+        color: white;
+    }
+    .planets-details-container{
+        max-width:110%;
+        font-size: 0.8em;
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    .planets-name-container{
+        display: flex;
+        margin: 30px 0;
+        font-size: 2em;
+        color: hsl(230, 13%, 91%);
+    }
+    .planets{
+        font-weight: 200;
+        cursor: pointer;
+        margin-right:20px;
+        padding-bottom: 10px;
+    }
+    .planet-name{
+        letter-spacing: 4px;
+        font-weight: 300;
+        line-height: 0;
+        font: 80px 'sans serif';
+    }
+    .planet-desc{
+        color: hsla(0, 0%, 100%, 0.612);
+        margin: 10px 0 30px 0;
+        font-size: 2em;
+        font-weight: 300;
+        line-height: 30px;
+    }
+    .distance-time-container{
+        display: flex;
+        margin: 20px 0;
+        letter-spacing: 4px;
+        font-weight:200 ;
+        color: hsl(230, 13%, 91%);
+    }
+    .distance-container{
+        margin-right: 40px;
+    }
+    .distance,.time{
+        margin-top: 10px;
+        font-size: 30px;
+        font-weight: 300;
+        color: white;
+        text-wrap: nowrap;
+    }
+    .mars{
+        border-bottom: 2px solid white;
+    }
+    @media screen and (max-width:1100px) {
+        main{
+            font-size: .8em;
+        }
+        .rightsection{
+            transform: scale(.8);
+        }
+        .planets-details-container{
+            padding-top: 100px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="head-left">
+            <img src="images/shared/logo.svg" alt="logo">
+        </div>
+        <hr color="gray" size="1px" width="10000%">
+        <div class="head-right">
+            <a href="space-home.html">
+                <div class="home"><span>00</span> HOME</div>
+            </a>
+            <a href="space-dest.html">
+                <div class="dest"><span>01</span> DESTINATION </div>
+            </a>
+            <a href="space-crew.html">
+                <div><span>02</span> CREW </div>
+            </a>
+            <a href="space-tech.html">
+                <div><span>03</span> TECHNOLOGY </div>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="leftsection">
+            <div class="planet-container">
+                <div class="planet-num">01</div>
+                <div>PICK YOUR DESTINATION</div>
+            </div>
+            <div class="planet-img-container">
+                <img src="image-mars.png" class="planet-img" alt="">
+            </div>
+        </div>
+        <div class="rightsection">
+            <div class="planets-details-container">
+                <div class="planets-name-container">
+                    <div class="planets moon">MOON</div>
+                    <div class="mars planets">MARS</div>
+                    <div class="planets europa">EUROPA</div>
+                    <div class="titan planets">TITAN</div>
+                </div>
+                <div class="planet-details"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        const planet_detailsHtml=document.querySelector('.planet-details');
+        let planet_details=``;
+        const planets=document.querySelectorAll('.planets');
+        const mars=document.querySelector('.mars');
+        const moon=document.querySelector('.moon');
+        const europa=document.querySelector('.europa');
+        const titan=document.querySelector('.titan');
+        const planet_img=document.querySelector('.planet-img');
+        const planet_num=document.querySelector('.planet-num');
+
+        moon.addEventListener('click',()=>{
+            moon_converter();
+        });
+
+        moon_converter();
+
+        function moon_converter(){
+            
+            planet_details=`
+            <div class="planet-name">
+                MOON
+            </div>
+            <div class="planet-desc">
+                See our planet as you've never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.
+            </div>
+            <hr width="100%" size="1">
+            <div class="distance-time-container">
+                <div class="distance-container">
+                    <div>AVG. DISTANCE</div>
+                    <div class="distance">384,400 KM</div>
+                </div>
+                <div class="time-container">
+                    <div>
+                        EST. TRAVEL TIME
+                    </div>
+                    <div class="time"> 
+                        3 days
+                    </div>
+                </div>
+            `;
+            planet_detailsHtml.innerHTML=planet_details;
+            planet_img_changer('moon',1);
+            moon.style=`border-bottom:2px solid white`;
+        }
+
+        mars.addEventListener('click',()=>{
+            
+            planet_details=`
+            <div class="planet-name">
+                MARS
+            </div>
+            <div class="planet-desc">
+                Don't forget to pack your hiking boots. You'll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It's two and a half times the size of Everest! 
+            </div>
+            <hr width="100%" size="1">
+            <div class="distance-time-container">
+                <div class="distance-container">
+                    <div>AVG. DISTANCE</div>
+                    <div class="distance">225 mil.KM</div>
+                </div>
+                <div class="time-container">
+                    <div>
+                        EST. TRAVEL TIME
+                    </div>
+                    <div class="time"> 
+                        9 MONTHS
+                    </div>
+            `;
+            planet_detailsHtml.innerHTML=planet_details;
+            planet_img_changer('mars',2);
+            mars.style=`border-bottom:2px solid white`;
+        });
+
+        europa.addEventListener('click',()=>{
+            
+            planet_details=`
+            <div class="planet-name">
+                EUROPA
+            </div>
+            <div class="planet-desc">
+                The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover's dream. With an icy surface, it's perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.
+            </div>
+            <hr width="100%" size="1">
+            <div class="distance-time-container">
+                <div class="distance-container">
+                    <div>AVG. DISTANCE</div>
+                    <div class="distance">628 mil.KM</div>
+                </div>
+                <div class="time-container">
+                    <div>
+                        EST. TRAVEL TIME
+                    </div>
+                    <div class="time"> 
+                        3 years
+                    </div>
+            `;
+            planet_detailsHtml.innerHTML=planet_details;
+            planet_img_changer('europa',3);
+            europa.style=`border-bottom:2px solid white`;
+        });
+
+
+        titan.addEventListener('click',()=>{
+            planet_details=`
+            <div class="planet-name">
+                TITAN
+            </div>
+            <div class="planet-desc">
+                The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.
+            </div>
+            <hr width="100%" size="1">
+            <div class="distance-time-container">
+                <div class="distance-container">
+                    <div>AVG. DISTANCE</div>
+                    <div class="distance">1.6 bil.KM</div>
+                </div>
+                <div class="time-container">
+                    <div>
+                        EST. TRAVEL TIME
+                    </div>
+                    <div class="time"> 
+                        7 years
+                    </div>
+            `;
+            planet_detailsHtml.innerHTML=planet_details;
+            planet_img_changer('titan',4);
+            titan.style=`border-bottom:2px solid white`;
+        });
+
+        function planet_img_changer(name,num){
+            planet_img.src=`image-${name}.png`;
+            planet_num.innerHTML=`0${num}`;
+            planets.forEach((planet)=>{
+                planet.style.border=`none`;
+            });
+        }
+    </script>
+
+</body>
+</html>

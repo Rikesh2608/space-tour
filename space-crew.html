@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<title>Space Tour</title>
+<style>
+    *:active {
+        outline: none;
+        -webkit-tap-highlight-color: transparent; 
+    }
+    body{
+        font-family: 'League Spartan', sans-serif;
+        overflow: hidden;
+        background: url(background-crew-desktop.jpg);
+        background-size:cover;
+        margin: 0;
+    }
+    header{
+        position: fixed;
+        width: 100vw;
+        margin-top:20px ;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        letter-spacing: 3px;
+        z-index: 10000;
+    }
+    .head-left img{
+        height: 40px;
+        margin: 0 30px;
+    }
+    .head-right{
+        text-wrap: nowrap;
+        color: hsl(228, 7%, 86%);
+        display: flex;
+        font-weight: 300;
+        background-color: hsla(223, 12%, 35%, 0.409);
+        padding: 0px 70px 0px 50px;
+    }
+    .head-right div{
+        font-size: 0.8em;
+        cursor: pointer;
+        margin-right: 20px;
+        transition: 1s;
+        padding: 30px 0;
+    }
+    .crew{
+        border-bottom: 2px solid white;
+    }
+    .head-right div:hover{
+        border: none;
+    }
+    span{
+        font-weight: bold;
+        color: white;
+    }
+    main{
+        min-height: 100vh;
+        padding: 50px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    .leftsection{
+        flex: 1;
+        padding:0 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .left-top{
+        font-size: 1.8em;
+        font-weight: 300;
+        display: flex;
+        letter-spacing: 4px;
+        margin-bottom: 100px;
+    }
+    .person-num{
+        color: gray;
+        font-weight: 700;
+        letter-spacing: 0;
+    }
+    .personal-role{
+        font:25px 'sans serif';
+        color: hsla(228, 7%, 86%, 0.537);
+    }
+    .person-name{
+        font:42px 'sans serif';
+        margin:20px 0 25px 0;
+    }
+    .person-desc{
+        line-height: 35px;
+        font-size: 1.7em;
+        font-weight: 300;
+        color: hsla(224, 17%, 87%, 0.786);
+    }
+    .person-num{
+        margin-right: 10px;
+    }
+    .rightsection{
+        flex: 1;
+        display: flex;
+        align-items: end;
+    }
+    .person-pic{
+        width: 70%;
+    }
+    .person-changer-container{
+        display: flex;
+        margin-top: 50px;
+    }
+    .person1,.person2,.person3,.person4{
+        height: 15px;
+        width: 15px;
+        cursor: pointer;
+        border-radius: 50%;
+        margin-right: 20px;
+        background-color: hsla(223, 12%, 35%, 0.409);
+    }
+
+    @media screen and (max-width:1100px){
+        main{
+            padding: 0;
+            transform: scale(.9);
+            font-size: 0.7em;
+        }
+        .leftsection{
+            padding: 100px 100px 0 40px;
+        }
+        .person-pic{
+            transform: translatey(100px);
+        }
+        .left-top{
+            margin-block: 40px;
+        }
+    }
+    @media screen and (max-width:720px){
+        body{
+            overflow: auto;
+        }
+        header{
+            position: static;
+        }
+        main{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="head-left">
+            <img src="images/shared/logo.svg" alt="logo">
+        </div>
+        <hr color="gray" size="1px" width="650">
+        <div class="head-right">
+            <a href="space-home.html">
+                <div class="home"><span>00</span> HOME</div>
+            </a>
+            <a href="space-dest.html">
+                <div class="dest"><span>01</span> DESTINATION </div>
+            </a>
+            <a href="space-crew.html">
+                <div class="crew"><span>02</span> CREW </div>
+            </a>
+            <a href="space-tech.html">
+                <div><span>03</span> TECHNOLOGY </div>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="leftsection">
+            <div class="left-top">
+                <div class="person-num"></div>
+                <div>MEET YOUR CREW</div>
+            </div>
+            <div class="person-details">
+            </div>
+            <div class="person-changer-container">
+                <div class="person1"></div>
+                <div class="person2"></div>
+                <div class="person3"></div>
+                <div class="person4"></div>
+            </div>
+        </div>
+        <div class="rightsection">
+            <img class="person-pic" src="image-anousheh-ansari.png" alt="">
+        </div>
+    </main>
+
+    <script>
+        const persondetailsHtml=document.querySelector('.person-details');
+        const person1=document.querySelector('.person1');
+        const person2=document.querySelector('.person2');
+        const person3=document.querySelector('.person3');
+        const person4=document.querySelector('.person4');
+        const person_changer_container=document.querySelectorAll('.person-changer-container div');
+        const person_img=document.querySelector('.person-pic');
+        const person_num=document.querySelector('.person-num');
+        let persondetails=``;
+        let person_num_details=1;
+        
+        person_changer();
+
+        window.addEventListener('keydown',(event)=>{
+            if(event.key==`ArrowRight`){
+                person_num_details++;
+            }
+            else if(event.key==`ArrowLeft`){
+                person_num_details--;
+            }
+            if(person_num_details<1){
+                person_num_details=4;
+            }
+            else if(person_num_details>4){
+                person_num_details=1;
+            }
+            person_changer();
+        });
+
+        person1.addEventListener('click',()=>{
+            person_num_details=1;
+            person_changer();
+        });
+
+        person2.addEventListener('click',()=>{
+            person_num_details=2;
+            person_changer();
+        });
+
+        person3.addEventListener('click',()=>{
+            person_num_details=3;
+            person_changer();
+        });
+
+        person4.addEventListener('click',()=>{
+            person_num_details=4;
+            person_changer();
+        });
+
+        function person1_details(){
+            persondetails=`
+                <div class="personal-role">Pilot</div>
+                <div class="person-name">Victor Glover</div>
+                <div class="person-desc">
+                    Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer.
+                </div>
+            `;
+            persondetailsHtml.innerHTML=persondetails;
+            person_img_changer('victor-glover',1);
+            person1.style=`background-color:white`;
+            person_num_details=1;
+        }
+
+        function person2_details(){
+            persondetails=`
+                <div class="personal-role">FLIGHT ENGINEER</div>
+                <div class="person-name">ANOUSHEH ANSARI</div>
+                <div class="person-desc"> Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.
+                </div>
+            `;
+            persondetailsHtml.innerHTML=persondetails;
+            person_img_changer('anousheh-ansari',2);
+            person2.style=`background-color:white`;
+        }
+
+        function person3_details(){
+            persondetails=`
+                <div class="personal-role">Commander</div>
+                <div class="person-name"> Douglas Hurley</div>
+                <div class="person-desc">
+                    Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.
+                </div>
+            `;
+            persondetailsHtml.innerHTML=persondetails;
+            person_img_changer('douglas-hurley',3);
+            person3.style=`background-color:white`;
+        }
+
+        function person4_details(){
+            persondetails=`
+                <div class="personal-role">Mission Specialist</div>
+                <div class="person-name"> Mark Shuttleworth </div>
+                <div class="person-desc">
+                    Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.
+                </div>
+            `;
+            persondetailsHtml.innerHTML=persondetails;
+            person_img_changer('mark-shuttleworth',4);
+            person4.style=`background-color:white`;
+            person_num_details=4;
+        }
+
+        function person_changer(){
+            if(person_num_details==1){
+                person1_details();
+            }
+            if(person_num_details==2){
+                person2_details();
+            }
+            if(person_num_details==3){
+                person3_details();
+            }
+            if(person_num_details==4){
+                person4_details();
+            }
+        }
+
+        function person_img_changer(name,num){
+            person_img.src=`image-${name}.png`;
+            person_num.innerHTML=`0${num}`;
+            person_changer_container.forEach((person)=>{
+                person.style=`background-color:hsla(223, 12%, 35%, 0.409)`;
+            });
+        }
+
+        setInterval(()=>{
+            person_num_details++;
+            if(person_num_details>4){
+                person_num_details=1;
+            }
+            person_changer();
+        },5000);
+
+    </script>
+</body>
+</html>

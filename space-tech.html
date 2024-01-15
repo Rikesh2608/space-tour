@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<title>Space Tour</title>
+<style>
+    *:active {
+        outline: none;
+        -webkit-tap-highlight-color: transparent; 
+    }
+    body{
+        font-family: 'League Spartan', sans-serif;
+        overflow: hidden;
+        background: url(background-technology-desktop.jpg);
+        background-size:cover;
+        margin: 0;
+    }
+    header{
+        position: fixed;
+        width: 100vw;
+        margin-top:20px ;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        letter-spacing: 3px;
+    }
+    .head-left img{
+        height: 40px;
+        margin: 0 30px;
+    }
+    .head-right{
+        text-wrap: nowrap;
+        color: hsl(228, 7%, 86%);
+        display: flex;
+        font-weight: 300;
+        background-color: hsla(223, 31%, 20%, 0.409);
+        padding: 0px 70px 0px 50px;
+    }
+    .head-right div{
+        font-size: 0.8em;
+        cursor: pointer;
+        margin-right: 20px;
+        transition: 1s;
+        padding: 30px 0;
+    }
+    .tech{
+        border-bottom: 2px solid white;
+    }
+    .head-right div:hover{
+        border: none;
+    }
+    span{
+        font-weight: bold;
+        color: white;
+    }
+    main{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    .leftsection{
+        color: white;
+        flex: 1;
+        width: 432px;
+        padding:100px ;
+    }
+    .left-top{
+        font-size: 1.8em;
+        font-weight: 200;
+        display: flex;
+        letter-spacing: 4px;
+        transform: translateY(50px);
+        color: hsl(228, 7%, 86%);
+    }
+    .tech-num{
+        margin-right: 20px;
+        color: gray;
+        font-weight: 700;
+    }
+    .left-bottom{
+        margin-top: 100px;
+        display: flex;
+    }
+    .tech-num-changer{
+        margin-right: 60px;
+    }
+    .tech-num-changer div{
+        font-weight: 300;
+        height: 100px;
+        width: 100px;
+        display: flex;
+        margin: 0 0 20px 0;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 2em;
+        border: 1px solid white;
+        cursor: pointer;
+    }
+    .tech-head-container{
+        color: hsl(228, 7%, 86%);
+        letter-spacing: 4px;
+        font-weight: 200;
+    }
+    .tech-head{
+        margin:35px 0;
+        font-weight: 300;
+        font-size: 3em;
+        text-wrap: nowrap;
+        color: white;
+    }
+    .rightsection{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+    .tech-pic{
+        width: 350px;
+    }
+    .tech-desc{
+        color: hsl(228, 7%, 86%);
+        margin-top: 30px;
+        font-weight: 200;
+        line-height: 35px;
+        font-size: 1.3em;
+    }
+    @media screen and (max-width:1100px) {
+        .leftsection,.rightsection{
+            transform: scale(.75);
+            padding: 0;
+            padding-top: 100px;
+        }
+        main{
+            padding: 0;
+        }
+        .left-top{
+            transform: translateY(0px);
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="head-left">
+            <img src="images/shared/logo.svg" alt="logo">
+        </div>
+        <hr color="gray" size="1px" width="650">
+        <div class="head-right">
+            <a href="space-home.html">
+                <div class="home"><span>00</span> HOME</div>
+            </a>
+            <a href="space-dest.html">
+                <div class="dest"><span>01</span> DESTINATION </div>
+            </a>
+            <a href="space-crew.html">
+                <div><span>02</span> CREW </div>
+            </a>
+            <a href="space-tech.html">
+                <div class="tech"><span>03</span> TECHNOLOGY </div>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="leftsection">
+            <div class="left-top">
+                <div class="tech-num">
+                    01
+                </div>
+                <div >
+                    SPACE LAUNCH 101
+                </div>
+            </div>
+            <div class="left-bottom">
+                <div class="tech-num-changer">
+                    <div class="tech1">1</div>
+                    <div class="tech2">2</div>
+                    <div class="tech3">3</div>
+                </div>
+                <div class="tech-details-container"></div>
+            </div>
+        </div>
+        <div class="rightsection">
+            <img class="tech-pic" src="image-launch-vehicle-portrait.jpg" alt="">
+        </div>
+    </main>
+
+    <script>
+
+        const tech_detailshtml=document.querySelector('.tech-details-container');
+        let tech_details=``;
+        const tech1=document.querySelector('.tech1');
+        const tech2=document.querySelector('.tech2');
+        const tech3=document.querySelector('.tech3');
+        const tech_num=document.querySelector('.tech-num');
+        let tech_num_details=1; 
+        const tech_pic=document.querySelector('.tech-pic');
+        const tech_num_changer=document.querySelectorAll('.tech-num-changer div');
+
+        tech1_details();
+
+        window.addEventListener('keydown',(event)=>{
+            if(event.key=='ArrowDown' || event.key=='ArrowRight'){
+                tech_num_details++;
+            }
+            else if(event.key=='ArrowUp' || event.key=='ArrowLeft'){
+                tech_num_details--;
+            }
+            if(tech_num_details>3){
+                tech_num_details=1;
+            }else if(tech_num_details<1){
+                tech_num_details=3;
+            }
+            color_changer();
+        });
+
+        tech1.addEventListener('click',()=>{
+            tech_num_details=1;
+            color_changer();
+        });
+
+        tech2.addEventListener('click',()=>{
+            tech_num_details=2;
+            color_changer();
+        });
+
+        tech3.addEventListener('click',()=>{
+            tech_num_details=3;
+            color_changer();
+        });
+
+        function tech1_details(){
+            tech_details=`
+            <div class="tech-head-container">
+                <div>THE TERMILOGY....</div>
+                <div class="tech-head">LAUNCH VEHICLE</div>
+            </div>
+            <div class="tech-desc">
+                A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!
+            </div>
+            `;
+            tech_detailshtml.innerHTML=tech_details;
+            tech_pic_changer('launch-vehicle',1);
+            tech1.style=`
+            background-color:white;
+            color:hsl(226, 84%, 27%);
+            `;
+        }
+
+        function tech2_details(){
+            tech_details=`
+            <div class="tech-head-container">
+                <div>THE TERMILOGY....</div>
+                <div class="tech-head">SPACE CAPSULE</div>
+            </div>
+            <div class="tech-desc">
+                A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.
+            </div>
+            `;
+            tech_detailshtml.innerHTML=tech_details;
+            tech_pic_changer('space-capsule',2);
+            tech2.style=`
+            background-color:white;
+            color:hsl(226, 84%, 27%);
+            `;
+        }
+
+        function tech3_details(){
+            tech_details=`
+            <div class="tech-head-container">
+                <div>THE TERMILOGY....</div>
+                <div class="tech-head">SPACEPORT</div>
+            </div>
+            <div class="tech-desc">
+                A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth's rotation for launch.
+            </div>
+            `;
+            tech_detailshtml.innerHTML=tech_details;
+            tech_pic_changer('spaceport',3);
+            tech3.style=`
+            background-color:white;
+            color:hsl(226, 84%, 27%);
+            `;
+        }
+
+        function tech_pic_changer(name,num){
+            tech_pic.src=`
+            image-${name}-portrait.jpg
+            `;
+            tech_num.innerHTML=`0${num}`;
+            tech_num_changer.forEach((tech)=>{
+                tech.style=`
+                    background-color:transaparent;
+                    color:white;
+                `;
+            });
+        }
+
+        function color_changer(){
+            if(tech_num_details==1){
+                tech1_details();
+            }
+            if(tech_num_details==2){
+                tech2_details();
+            }
+            if(tech_num_details==3){
+                tech3_details();
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<title>Space Tour</title>
+<style>
+    *:active {
+        outline: none;
+        -webkit-tap-highlight-color: transparent; 
+    }
+    body{
+        font-family: 'League Spartan', sans-serif;
+        overflow: hidden;
+        background: url(background-home-desktop.jpg);
+        background-size:cover;
+        margin: 0;
+    }
+    header{
+        position: fixed;
+        width: 100vw;
+        margin-top:20px ;
+        display: flex;
+        z-index: 1000;
+        justify-content: space-between;
+        align-items: center;
+        letter-spacing: 3px;
+    }
+    .head-left img{
+        height: 40px;
+        margin: 0 30px;
+    }
+    .head-right{
+        text-wrap: nowrap;
+        color: hsl(228, 7%, 86%);
+        display: flex;
+        font-weight: 300;
+        background-color: hsla(223, 31%, 20%, 0.409);
+        padding: 0px 70px 0px 50px;
+    }
+    .head-right div{
+        font-size: 0.8em;
+        cursor: pointer;
+        margin-right: 20px;
+        transition: 1s;
+        padding: 30px 0;
+    }
+    .home{
+        border-bottom: 2px solid white;
+    }
+    .head-right div:hover{
+        border: none;
+    }
+    span{
+        font-weight: bold;
+        color: white;
+    }
+    main{
+        height: 100vh;
+        padding: 80px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .leftsection{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        padding-left: 100px;
+        color: hsl(228, 7%, 86%);
+    }
+    .leftsec-head{
+        font-size: 1.4em;
+    }
+    .leftsec-head,.leftsec-middle{
+        letter-spacing: 4px;
+        font-weight: 300;
+    }
+    .leftsec-middle{
+        color: white;
+        letter-spacing: 10px;
+        font-size: 8em ;
+        margin: 30px 0;
+    }
+    .leftsec-bottom{
+        line-height: 40px;
+        font-weight: 200;
+        font-size: 1.8em;
+    }
+    .rightsection{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+    .explore{
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: 300;
+        letter-spacing: 4px;
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+        background-color: white;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
+    @media screen and (max-width:1100px) {
+        main{
+            transform: scale(.8);
+            font-size: .8em;
+        }
+        .leftsection,.rightsection{
+            padding: 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="head-left">
+            <img src="images/shared/logo.svg" alt="logo">
+        </div>
+        <hr color="gray" size="1px" width="10000px">
+        <div class="head-right">
+            <a href="space-home.html">
+                <div class="home"><span>00</span> HOME</div>
+            </a>
+            <a href="space-dest.html">
+                <div class="dest"><span>01</span> DESTINATION </div>
+            </a>
+            <a href="space-crew.html">
+                <div><span>02</span> CREW </div>
+            </a>
+            <a href="space-tech.html">
+                <div><span>03</span> TECHNOLOGY </div>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="leftsection">
+            <div class="leftsec-head">SO,YOU WANT TO TRAVEL TO</div>
+            <div class="leftsec-middle">SPACE</div>
+            <div class="leftsec-bottom">Let's face it: if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we'll give you a truly out of this world experience!</div>
+        </div>
+        <div class="rightsection">
+            <a href="space-dest.html">
+                <div class="explore">
+                    EXPLORE
+                </div>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
